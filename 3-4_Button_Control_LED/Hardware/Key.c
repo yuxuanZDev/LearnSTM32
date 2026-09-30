@@ -1,6 +1,11 @@
 #include "stm32f10x.h"                  // Device header
 #include "Delay.h"
 
+/**
+  * @brief	Initialize GPIO pins for the two bottoms.
+  * @param	None
+  * @retval	None
+  */
 void Key_Init(void)
 {
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
@@ -13,6 +18,13 @@ void Key_Init(void)
 	GPIO_Init(GPIOB, &GPIO_InitStructure);
 }
 
+/**
+  * @brief	Get the number of the pressed key.
+  * @param	None
+  * @retval	0: No key pressed.
+  * @retval 1: Key on PB1 pressed.
+  * @retval 2: Key on PB11 pressed.
+  */
 uint8_t Key_GetNum(void)
 {
 	uint8_t KeyNum = 0;	//默认返回0
