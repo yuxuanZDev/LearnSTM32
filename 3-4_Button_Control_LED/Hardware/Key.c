@@ -17,12 +17,20 @@ uint8_t Key_GetNum(void)
 {
 	uint8_t KeyNum = 0;	//默认返回0
 	
-	if (GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_0 | GPIO_Pin_11) == 0)
+	if (GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_1) == 0)	//按键按下
 	{
 		Delay_ms(20);	//消除按下抖动
-		while(GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_0 | GPIO_Pin_11) == 0);	//松手才返回1
+		while(GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_1) == 0);	//松手才返回1
 		Delay_ms(20);	//消除松开抖动
 		KeyNum = 1;
+	}
+	
+	if (GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_11) == 0)	//按键按下
+	{
+		Delay_ms(20);	//消除按下抖动
+		while(GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_11) == 0);	//松手才返回1
+		Delay_ms(20);	//消除松开抖动
+		KeyNum = 2;
 	}
 
 	return KeyNum;
