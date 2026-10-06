@@ -53,3 +53,42 @@ dkms.conf
 
 # debug information files
 *.dwo
+# Keil / STM32 generated files
+Objects/
+Listings/
+
+*.axf
+*.bin
+*.lst
+*.crf
+*.lnp
+*.htm
+*.dep
+*.sct
+*.tra
+
+# Keil user-specific files
+*.uvguix.*
+*.uvoptx
+
+# Backup files
+*.bak
+*.orig
+*.tmp
+
+# macOS
+.DS_Store
+
+# CLion / JetBrains
+.idea/
+cmake-build-*/
+
+# Keil temporary / user files
+*.uvguix.*
+*.uvoptx
+*.uvguix
+*.uvgui.*
+
+# Build output folders
+Debug/
+Release/
